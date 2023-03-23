@@ -81,7 +81,7 @@ recordRoutes.route("/:id").delete((req, response) => {
   });
 });
 
-/ This section will help you get a single record by name
+// This section will help you get a single record by name
 recordRoutes.route("/name/:name").get(function (req, res) {
   let db_connect = dbo.getDb();
   let myquery = { name: req.params.name };
