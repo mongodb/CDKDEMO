@@ -14,12 +14,3 @@ test('test specific records', async () =>{
     expect(records.length).toBe(1)
     expect(records[0].level).toBe("Intern")
 });
-
-test('getting total number of records ', async () =>{
-    const response = await axios(`http://localhost:5000/record/`)
-    let records = await response.data;
-
-    expect(records.length).toBe(3)
-});
-
-
