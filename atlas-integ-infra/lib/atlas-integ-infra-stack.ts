@@ -44,19 +44,23 @@ export class AtlasIntegInfraStack extends cdk.Stack {
       }
     });
 
+    let atlasUrl = (atlas.mCluster.connectionStrings.standardSrv ?? "UNDEFINED").toString()
+
     new cdk.CfnOutput(this, "atlas-url", {
-      value: (atlas.mCluster.props.connectionStrings ?? "UNDEFINED").toString(),
+      value: atlasUrl,
+      // value: atlas.CFNCluster?connectionStrings?.standardSrv ?? 'undefined',
       exportName: "atlas-url",
     });
 
-    new cdk.CfnOutput(this, "hello-world", {
-      value: "Hi there!",
-      exportName: "hello-world-url",
+    new cdk.CfnOutput(this, "username", {
+      value: (atlas.mDBUser.props.username ?? "UNDEFINED").toString(),
+      exportName: "username",
     });
 
-    writeFileSync("./myexport.sh", "echo \"hello\"", {
-      flag: 'w',
+    new cdk.CfnOutput(this, "pwd", {
+      value: (atlas.mDBUser.props.password ?? "UNDEFINED").toString(),
+      exportName: "password",
     });
-
+   
   }
 }
