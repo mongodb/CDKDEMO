@@ -24,6 +24,17 @@ npm install
 npm start
 ```
 
+## How To Test
+For Unit tests run:
+```
+npm test tests/api.unit.test.js
+```
+
+For Integration tests run:
+```
+npm test tests/api.integ.test.js
+```
+
 ## Disclaimer
 
 Use at your own risk; not a supported MongoDB product

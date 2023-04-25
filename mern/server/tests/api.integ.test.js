@@ -4,7 +4,7 @@ test('getting total records record', async () =>{
     const response = await axios(`http://localhost:5000/record/`)
     let records = await response.data
 
-    expect(records.length).toBe(3)
+    expect(records.length).toBe(4)
 });
 
 test('test specific records', async () =>{
