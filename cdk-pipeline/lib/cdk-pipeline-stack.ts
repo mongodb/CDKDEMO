@@ -4,6 +4,7 @@ import { CodeBuildStep, CodePipeline, CodePipelineSource } from 'aws-cdk-lib/pip
 import { LinuxBuildImage } from 'aws-cdk-lib/aws-codebuild';
 import { PolicyStatement } from 'aws-cdk-lib/aws-iam';
 
+let orgId = process.env.MONGODB_ATLAS_ORG_ID;
 
 let cfPolicy = new PolicyStatement({
   resources:  ["*"],
@@ -31,11 +32,16 @@ export class CdkPipelineStack extends cdk.Stack {
         input: CodePipelineSource.gitHub('ialek36/mern-cdk-ci-cd', 'main'),
         buildEnvironment: {
           buildImage: LinuxBuildImage.AMAZON_LINUX_2_4, 
+          environmentVariables: {
+            MONGODB_ATLAS_ORG_ID: {value: orgId},
+          }
         },
         rolePolicyStatements: [
           cfPolicy,
-          ssmPolicy
+          ssmPolicy,
+          assumePolicy
         ],
+        primaryOutputDirectory: 'atlas-integ-infra/cdk.out',
         commands: ['pwd',
           'ls -la',
           'node --version',
