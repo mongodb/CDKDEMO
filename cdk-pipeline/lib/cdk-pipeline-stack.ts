@@ -27,7 +27,7 @@ export class CdkPipelineStack extends cdk.Stack {
 
     const pipeline = new CodePipeline(this, 'Pipeline', {
       pipelineName: 'Atlas-CDK-Pipeline',
-      selfMutation: true,
+      selfMutation: false,
       synth: new CodeBuildStep('Integ-Test', {
         input: CodePipelineSource.gitHub('ialek36/mern-cdk-ci-cd', 'main'),
         buildEnvironment: {
