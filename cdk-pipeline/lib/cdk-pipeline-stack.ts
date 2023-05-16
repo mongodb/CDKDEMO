@@ -21,6 +21,21 @@ let assumePolicy = new PolicyStatement({
   actions: ["sts:AssumeRole"]
 });
 
+let s3Policy = new PolicyStatement({
+  resources:  ["*"],
+  actions: ["s3:PutLifecycleConfiguration"]
+});
+
+let ecrPolicy = new PolicyStatement({
+  resources:  ["*"],
+  actions: ["ecr:*"]
+});
+
+let iamPolicy = new PolicyStatement({
+  resources:  ["*"],
+  actions: ["iam:GetRole"]
+});
+
 export class CdkPipelineStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
@@ -39,6 +54,9 @@ export class CdkPipelineStack extends cdk.Stack {
         rolePolicyStatements: [
           cfPolicy,
           ssmPolicy,
+          s3Policy,
+          ecrPolicy,
+          iamPolicy,
           assumePolicy
         ],
         primaryOutputDirectory: 'atlas-integ-infra/cdk.out',
