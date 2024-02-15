@@ -1,5 +1,5 @@
 ## How To Run
-Follow instructions at: [Insert link of published YouTube Webinar 15 Feb 2024]
+Follow instructions at: https://www.youtube.com/watch?v=Lk1edqMFgys 
 
 ## Disclaimer
 
