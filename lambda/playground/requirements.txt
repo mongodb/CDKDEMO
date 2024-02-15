@@ -1,0 +1,5 @@
+pymongo
+requests
+boto3
+testresources
+urllib3==1.26
