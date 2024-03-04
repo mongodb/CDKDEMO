@@ -1,5 +1,5 @@
 ## How To Run
-Follow instructions at: https://www.youtube.com/watch?v=Lk1edqMFgys 
+Follow instructions at: https://www.mongodb.com/developer/products/atlas/getting-started-mongodb-atlas-serverless-aws-cdk-serverless-computing/ and https://www.youtube.com/watch?v=Lk1edqMFgys 
 
 ## Disclaimer
 
